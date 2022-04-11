@@ -1,0 +1,28 @@
+Funktionerna för schemat i node red
+
+
+En temperaturkurva som svänger från 10-20 grader under circa 24h
+----------------------------------------------------------------
+
+time = msg.payload;
+temp = 15+5*Math.sin(msg.payload*0.00000001);
+temp = parseInt(temp*10);
+
+msg.topic = "temp";
+msg.payload = {"time":time, "outside":temp};
+
+return msg;
+
+
+
+En temperaturkurva som hoppar från 20-21 grader slumpmässigt
+------------------------------------------------------------
+
+time = msg.payload;
+temp = 20+Math.random();
+temp = parseInt(temp*10);
+
+msg.topic = "temp";
+msg.payload = {"time":time, "inside":temp};
+
+return msg;

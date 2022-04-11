@@ -1,0 +1,10 @@
+Enkel insamling och visualisering av temperaturer
+-------------------------------------------------
+
+Modellen i Node Red simulerar två temperaturgivare, en inomhus och en utomhus.  Temperaturen inomhus hoppar mellan 20-21 grader, och temperaturen utomhus svänger mellan 10-20 grader under ca 24h.
+
+Två javascript-funktioner genererar datan som json-strängar med timestamp och temperatur i tiondelar, och skickar dem till en debug-nod och en mqtt-out-nod och vidare till AWS.  På AWS skickar två Rules datan till Cloudwatch, och en Lambda som skapar en unik nyckel och skickar in datan i en DynamoDB.
+
+Klientprogrammet ansluter till AWS och hämtar ner innehållet i DynamoDBn och ritar sedan upp kurvorna m.h.a. pyplot.
+
+(databasen innehåller knappt 1 timme insamlad data, därför ligger den blåa utomhuskurvan nästan platt)
