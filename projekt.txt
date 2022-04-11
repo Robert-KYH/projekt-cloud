@@ -1,7 +1,7 @@
 Enkel insamling och visualisering av temperaturer
 -------------------------------------------------
 
-Modellen i Node Red simulerar två temperaturgivare, en inomhus och en utomhus.
+Modellen i Node Red simulerar två temperaturgivare, en inomhus och en utomhus, som ger temperaturer var 10:e sekund.
 Temperaturen inomhus hoppar mellan 20-21 grader, och temperaturen utomhus svänger mellan 10-20 grader under ca 24h.
 
 Två javascript-funktioner genererar datan som json-strängar med timestamp och temperatur i tiondelar, och skickar dem
